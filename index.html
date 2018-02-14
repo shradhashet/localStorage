@@ -1,0 +1,58 @@
+<html>
+
+<head>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+
+
+
+    <script type="text/javascript" src="formDetails.js"></script>
+</head>
+
+<body>
+    <form>
+        <label>name</label>
+        <input id="name" type="text" value="" required="true" />
+        </br>
+        <label>age</label>
+        <input id="age" type="number" value="" required="true" />
+        </br>
+        <label>salary</label>
+        <input id="salary" type="number" value="" required="true" />
+        </br>
+        <label>email</label>
+        <input id="email" type="email" value="" required="true" />
+        </br>
+        <button id="save">save</button>
+    </form>
+    <h2> list person details</h2>
+    <table style="border:solid 1px grey;">
+        <th>Name</th>
+        <th>Age</th>
+        <th>Salary</th>
+        <th>Email</th>
+         <th>Edit</th>
+         <th>Delete</th>
+        <tbody>
+         </tbody>
+        <script type="text/template" id="details-template" >
+            
+            <% _.each(details,function(item,index){ %>
+               
+                <tr>
+            <td><%=item.name %></td>
+            <td><%= item.age %></td>
+            <td><%= item.salary %></td>
+            <td><%= item.email %></td>
+            <td><button id="edit" data-index="index">Edit</button></td>
+             <td><button id="delete" data-index="<%=index%>">Delete</button></td>
+            </tr>
+
+           <% }); %>
+           
+           
+        </script>
+    </table>
+</body>
+
+</html>
